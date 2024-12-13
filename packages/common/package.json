@@ -1,0 +1,13 @@
+{
+  "name": "@lmonitor/common",
+  "version": "1.0.0",
+  "description": "@lmonitor/common",
+  "main": "src/index.js",
+  "publishConfig": {
+    "main": "dist/index.js"
+  },
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "",
+  "license": "MIT"
+}

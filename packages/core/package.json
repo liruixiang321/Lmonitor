@@ -1,0 +1,17 @@
+{
+  "name": "@lmonitor/core",
+  "version": "1.0.0",
+  "description": "@lmonitor/core",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.mjs",
+    "dev": "rollup -c ../../rollup.config.mjs -w"
+  },
+  "dependencies": {
+    "@lmonitor/types": "workspace:*"
+  }
+}
