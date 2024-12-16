@@ -1,4 +1,4 @@
-import { EVENTTYPES, STATUS_CODE, BREADCRUMBTYPES } from '@lmonitor/common';
+import { EVENTTYPES, STATUS_CODE, BREADCRUMBTYPES } from "@lmonitor/common";
 
 // Without将T中不包含U的属性 设置为可选属性
 export type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
