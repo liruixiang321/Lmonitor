@@ -48,7 +48,7 @@ export class Options {
   }
 }
 
-// 创建全局唯一的options实例
+// 创建全局唯一的options实例---单例模式
 const _support: any = window;
 const options = _support.options || (_support.options = new Options());
 
