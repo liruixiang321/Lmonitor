@@ -1,4 +1,4 @@
-import { on, replaceAop } from "@lmonitor/utils";
+import { on, replaceAop, throttle } from "@lmonitor/utils";
 import { options } from "./options";
 import { notify, subscribeEvent } from "./subscribe";
 import { EVENTTYPES } from "@lmonitor/common";
@@ -230,10 +230,15 @@ function listenHashchange(): void {
  * 监听点击事件
  */
 function domReplace(): void {
+  if (!window.document) return;
+  const throttleClick = throttle(notify, options.throttleDelayTime);
   window.addEventListener(
     EVENTTYPES.CLICK,
     function (e: MouseEvent) {
-      notify(EVENTTYPES.CLICK, e);
+      throttleClick(EVENTTYPES.CLICK, {
+        category: "click",
+        data: e,
+      });
     },
     true
   );

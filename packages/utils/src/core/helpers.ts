@@ -46,3 +46,28 @@ export function on(
 ): void {
   target.addEventListener(eventName, handler, opitons);
 }
+
+//节流函数:一定时间内只执行一次
+
+export function throttle(fn: Callback, time: number): Callback {
+  let canrun = true;
+  return function (this: any, ...args: any[]) {
+    if (!canrun) return;
+    fn.apply(this, args);
+    canrun = false;
+    setTimeout(() => {
+      canrun = true;
+    }, time);
+  };
+}
+
+//防抖函数：一定时间内多次点击只出发一次
+export function debounce(fn: Callback, time: number): Callback {
+  let timer: any = null;
+  return function (this: any, ...args: any[]) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, time);
+  };
+}
